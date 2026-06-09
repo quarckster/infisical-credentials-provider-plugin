@@ -5,9 +5,8 @@ import com.cloudbees.plugins.credentials.CredentialsProvider;
 import com.cloudbees.plugins.credentials.CredentialsScope;
 import com.cloudbees.plugins.credentials.CredentialsStore;
 import com.cloudbees.plugins.credentials.domains.DomainRequirement;
-import edu.umd.cs.findbugs.annotations.CheckForNull;
-import edu.umd.cs.findbugs.annotations.NonNull;
-import edu.umd.cs.findbugs.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import hudson.Extension;
 import hudson.model.Item;
 import hudson.model.ItemGroup;
@@ -100,9 +99,9 @@ public class InfisicalCredentialsProvider extends CredentialsProvider {
     }
 
     /** Contribute the read-only store at the Jenkins root so secrets show on /credentials/. */
-    @CheckForNull
+    @Nullable
     @Override
-    public CredentialsStore getStore(@CheckForNull ModelObject object) {
+    public CredentialsStore getStore(@Nullable ModelObject object) {
         return object instanceof Jenkins ? store : null;
     }
 

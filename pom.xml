@@ -59,6 +59,13 @@
   </dependencyManagement>
 
   <dependencies>
+    <!-- Nullness annotations (compile-time only; not bundled in the .hpi). -->
+    <dependency>
+      <groupId>org.jspecify</groupId>
+      <artifactId>jspecify</artifactId>
+      <version>1.0.0</version>
+      <scope>provided</scope>
+    </dependency>
     <!-- Credentials API: providers, stores, base credential types. -->
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>

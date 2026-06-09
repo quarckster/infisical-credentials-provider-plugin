@@ -3,8 +3,8 @@ package io.jenkins.plugins.infisical;
 import com.cloudbees.jenkins.plugins.sshcredentials.SSHUserPrivateKey;
 import com.cloudbees.plugins.credentials.CredentialsScope;
 import com.cloudbees.plugins.credentials.impl.BaseStandardCredentials;
-import edu.umd.cs.findbugs.annotations.CheckForNull;
-import edu.umd.cs.findbugs.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 import hudson.Extension;
 import hudson.util.Secret;
 import java.util.List;
@@ -24,7 +24,7 @@ public class InfisicalSSHUserPrivateKey extends BaseStandardCredentials implemen
     private final transient Supplier<String> privateKey;
 
     public InfisicalSSHUserPrivateKey(CredentialsScope scope, String id, String description,
-                                      @NonNull String username, @CheckForNull Secret passphrase,
+                                      @NonNull String username, @Nullable Secret passphrase,
                                       @NonNull Supplier<String> privateKey) {
         super(scope, id, description);
         this.username = username;
@@ -52,7 +52,7 @@ public class InfisicalSSHUserPrivateKey extends BaseStandardCredentials implemen
         return List.of(privateKey == null ? "" : privateKey.get());
     }
 
-    @CheckForNull
+    @Nullable
     @Override
     public Secret getPassphrase() {
         return passphrase;

@@ -1,6 +1,6 @@
 package io.jenkins.plugins.infisical;
 
-import edu.umd.cs.findbugs.annotations.NonNull;
+import org.jspecify.annotations.NonNull;
 import hudson.util.Secret;
 import java.io.IOException;
 import java.net.URI;

@@ -1,6 +1,6 @@
 package io.jenkins.plugins.infisical;
 
-import edu.umd.cs.findbugs.annotations.NonNull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Checked exception for all Infisical client failures, tagged with a {@link Kind}

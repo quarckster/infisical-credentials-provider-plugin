@@ -1,7 +1,7 @@
 package io.jenkins.plugins.infisical;
 
-import edu.umd.cs.findbugs.annotations.CheckForNull;
-import edu.umd.cs.findbugs.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -55,7 +55,7 @@ class InfisicalSecretCache {
     }
 
     /** Resolve a single secret value lazily (used by credential {@code getSecret()}). */
-    @CheckForNull
+    @Nullable
     String getValue(@NonNull String key) throws InfisicalException {
         InfisicalSecret s = getSecrets().get(key);
         return s == null ? null : s.getValue();

@@ -1,7 +1,7 @@
 package io.jenkins.plugins.infisical;
 
-import edu.umd.cs.findbugs.annotations.CheckForNull;
-import edu.umd.cs.findbugs.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 import java.util.Collections;
 import java.util.Map;
 
@@ -16,7 +16,7 @@ public final class InfisicalSecret {
     private final String value;
     private final Map<String, String> metadata;
 
-    public InfisicalSecret(@NonNull String key, @CheckForNull String value, @CheckForNull Map<String, String> metadata) {
+    public InfisicalSecret(@NonNull String key, @Nullable String value, @Nullable Map<String, String> metadata) {
         this.key = key;
         this.value = value;
         this.metadata = metadata == null ? Collections.emptyMap() : Map.copyOf(metadata);
@@ -27,7 +27,7 @@ public final class InfisicalSecret {
         return key;
     }
 
-    @CheckForNull
+    @Nullable
     public String getValue() {
         return value;
     }

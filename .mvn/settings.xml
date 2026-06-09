@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Maven settings for building this Jenkins plugin.
+
+  The maven-hpi-plugin and the Jenkins parent POMs live only on repo.jenkins-ci.org,
+  not on Maven Central. Declaring that repository in an always-active settings profile
+  (id MUST be repo.jenkins-ci.org, to match how artifacts are tagged in the local cache)
+  puts it in the resolution context from the very start — including when Maven resolves
+  a build plugin's *parent* POM — which silences the
+    "POM ... is missing, no dependency information available"
+    "Failed to build parent project ..."
+  warnings.
+
+  CI uses this file via `mvn -s .mvn/settings.xml`. For local builds, copy it to
+  ~/.m2/settings.xml so a bare `mvn` picks it up automatically.
+-->
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <pluginGroups>
+    <pluginGroup>org.jenkins-ci.tools</pluginGroup>
+  </pluginGroups>
+  <profiles>
+    <profile>
+      <id>jenkins</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <id>repo.jenkins-ci.org</id>
+          <url>https://repo.jenkins-ci.org/public/</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>repo.jenkins-ci.org</id>
+          <url>https://repo.jenkins-ci.org/public/</url>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+</settings>

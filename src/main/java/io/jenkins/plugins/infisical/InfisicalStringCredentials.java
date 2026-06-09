@@ -2,7 +2,7 @@ package io.jenkins.plugins.infisical;
 
 import com.cloudbees.plugins.credentials.CredentialsScope;
 import com.cloudbees.plugins.credentials.impl.BaseStandardCredentials;
-import edu.umd.cs.findbugs.annotations.NonNull;
+import org.jspecify.annotations.NonNull;
 import hudson.Extension;
 import hudson.util.Secret;
 import java.util.function.Supplier;

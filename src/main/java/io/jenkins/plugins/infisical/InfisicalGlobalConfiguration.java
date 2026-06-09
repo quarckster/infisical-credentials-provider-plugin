@@ -5,8 +5,8 @@ import com.cloudbees.plugins.credentials.Credentials;
 import com.cloudbees.plugins.credentials.SystemCredentialsProvider;
 import com.cloudbees.plugins.credentials.common.StandardListBoxModel;
 import com.cloudbees.plugins.credentials.common.StandardUsernamePasswordCredentials;
-import edu.umd.cs.findbugs.annotations.CheckForNull;
-import edu.umd.cs.findbugs.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 import hudson.Extension;
 import hudson.ExtensionList;
 import hudson.Util;
@@ -50,7 +50,7 @@ public class InfisicalGlobalConfiguration extends GlobalConfiguration {
         return ExtensionList.lookupSingleton(InfisicalGlobalConfiguration.class);
     }
 
-    @CheckForNull
+    @Nullable
     public String getServerUrl() {
         return serverUrl;
     }
@@ -61,7 +61,7 @@ public class InfisicalGlobalConfiguration extends GlobalConfiguration {
         save();
     }
 
-    @CheckForNull
+    @Nullable
     public String getProjectId() {
         return projectId;
     }
@@ -72,7 +72,7 @@ public class InfisicalGlobalConfiguration extends GlobalConfiguration {
         save();
     }
 
-    @CheckForNull
+    @Nullable
     public String getEnvironment() {
         return environment;
     }
@@ -83,7 +83,7 @@ public class InfisicalGlobalConfiguration extends GlobalConfiguration {
         save();
     }
 
-    @CheckForNull
+    @Nullable
     public String getSecretPath() {
         return secretPath;
     }
@@ -95,7 +95,7 @@ public class InfisicalGlobalConfiguration extends GlobalConfiguration {
         save();
     }
 
-    @CheckForNull
+    @Nullable
     public String getCredentialsId() {
         return credentialsId;
     }
@@ -165,7 +165,7 @@ public class InfisicalGlobalConfiguration extends GlobalConfiguration {
      * Look up the bootstrap username/password credential by id, reading only the
      * system store so this never re-enters this plugin's own provider.
      */
-    @CheckForNull
+    @Nullable
     static StandardUsernamePasswordCredentials resolveBootstrapCredential(String id) {
         if (id == null || id.isBlank()) {
             return null;

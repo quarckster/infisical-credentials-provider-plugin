@@ -3,7 +3,7 @@ package io.jenkins.plugins.infisical;
 import com.cloudbees.plugins.credentials.CredentialsProvider;
 import com.cloudbees.plugins.credentials.CredentialsStore;
 import com.cloudbees.plugins.credentials.CredentialsStoreAction;
-import edu.umd.cs.findbugs.annotations.NonNull;
+import org.jspecify.annotations.NonNull;
 import org.kohsuke.stapler.export.ExportedBean;
 
 /** The {@code /credentials/} action that renders the read-only Infisical store. */

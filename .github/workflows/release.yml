@@ -28,12 +28,12 @@ jobs:
 
       - name: Stamp the plugin version from the tag
         run: >-
-          mvn -B -ntp versions:set
+          mvn -B -ntp --settings .mvn/settings.xml versions:set
           -DnewVersion='${{ steps.meta.outputs.version }}'
           -DgenerateBackupPoms=false
 
       - name: Build and test
-        run: mvn -B -ntp -U clean verify
+        run: mvn -B -ntp --settings .mvn/settings.xml clean verify
 
       - name: Create GitHub release and attach the .hpi
         env:
