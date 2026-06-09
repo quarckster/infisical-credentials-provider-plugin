@@ -1,0 +1,24 @@
+# Maven / Jenkins plugin build output
+target/
+*.hpi
+*.jpi
+*.hpl
+
+# Maven wrapper (keep .mvn/wrapper/maven-wrapper.properties if you add the wrapper)
+!.mvn/wrapper/maven-wrapper.jar
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.project
+.classpath
+
+# Jenkins hpi:run work dir
+work/
+
+# OS noise
+.DS_Store

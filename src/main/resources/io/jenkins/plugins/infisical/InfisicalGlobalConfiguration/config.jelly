@@ -1,0 +1,28 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form" xmlns:c="/lib/credentials">
+  <f:section title="Infisical">
+    <f:entry title="Server URL" field="serverUrl"
+             description="Base URL of the Infisical instance, e.g. https://infisical.example.com (or https://app.infisical.com for the cloud).">
+      <f:textbox checkDependsOn="projectId environment credentialsId"/>
+    </f:entry>
+    <f:entry title="Project ID or slug" field="projectId"
+             description="Infisical project, given either as its UUID (sent as workspaceId) or its slug, e.g. my-project (sent as workspaceSlug).">
+      <f:textbox checkDependsOn="serverUrl environment credentialsId"/>
+    </f:entry>
+    <f:entry title="Environment" field="environment"
+             description="Environment slug, e.g. prod">
+      <f:textbox checkDependsOn="serverUrl projectId credentialsId"/>
+    </f:entry>
+    <f:entry title="Secret path" field="secretPath"
+             description="Path within the environment, e.g. /ci (defaults to /).">
+      <f:textbox default="/"/>
+    </f:entry>
+    <f:entry title="Auth credential" field="credentialsId"
+             description="Username/password credential holding the machine-identity clientId (username) and clientSecret (password).">
+      <c:select checkDependsOn="serverUrl projectId environment"/>
+    </f:entry>
+    <f:validateButton title="Test connection" progress="Testing…"
+                      method="testConnection"
+                      with="serverUrl,projectId,environment,secretPath,credentialsId"/>
+  </f:section>
+</j:jelly>

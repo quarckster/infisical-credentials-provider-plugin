@@ -1,0 +1,6 @@
+<?jelly escape-by-default='true'?>
+<div>
+  Exposes secrets stored in Infisical as native Jenkins credentials, so they
+  resolve through the standard <code>withCredentials</code> step and any
+  credential-consuming plugin without custom secret-fetch code in pipelines.
+</div>

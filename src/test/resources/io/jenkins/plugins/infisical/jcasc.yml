@@ -1,0 +1,7 @@
+unclassified:
+  infisical:
+    serverUrl: "https://infisical.example.com"
+    projectId: "my-project"
+    environment: "prod"
+    secretPath: "/ci"
+    credentialsId: "infisical-machine-identity"
